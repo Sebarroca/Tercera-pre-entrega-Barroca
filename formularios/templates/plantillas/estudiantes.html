@@ -1,0 +1,39 @@
+{% extends 'plantillas/base.html' %}
+{% load static %}
+
+{% block heading %}
+<div style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Estudiantes</div>
+{% endblock  %}
+
+{% block titulo %}
+Estudiantes
+{% endblock  %}
+
+
+{% block adicional %}
+<style>
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .centered-form {
+        border: 2px solid black; 
+        padding: 20px; 
+        border-radius: 10px; 
+    }
+</style>
+<body>
+    <div class="form-container">
+    <form class="centered-form" action="" method="POST">
+        <h4 style="color: rgb(5, 53, 107);">Formulario para estudiantes</h4>
+        {% csrf_token %}
+        <table>
+            {{miFormulario.as_table}} 
+        </table>
+        <input type = "submit" value="Enviar">
+    </form>
+    </div>   
+</body>
+
+{% endblock  %}
